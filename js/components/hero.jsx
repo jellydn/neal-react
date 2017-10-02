@@ -1,11 +1,12 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Container, Row, Col } from "../helpers/bootstrap";
 import classNames from "classnames";
 
 export class Hero extends React.Component {
 
   static propTypes = {
-    backgroundImage: React.PropTypes.string,
+    backgroundImage: PropTypes.string,
   };
 
   render() {
@@ -17,7 +18,7 @@ export class Hero extends React.Component {
     return (
       <div {... this.props} className={_className} style={_style}>
         <Container>
-          { this.props.children }
+          {this.props.children}
         </Container>
       </div>
     );

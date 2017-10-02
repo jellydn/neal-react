@@ -1,10 +1,11 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 export class Segment extends React.Component {
 
-  static propTypes ={
-    writeKey: React.PropTypes.string.isRequired,
-    history: React.PropTypes.object,
+  static propTypes = {
+    writeKey: PropTypes.string.isRequired,
+    history: PropTypes.object,
   };
 
   componentDidMount() {
@@ -22,6 +23,6 @@ export class Segment extends React.Component {
   }
 
   render() {
-    return <div key="segment"/>;
+    return <div key="segment" />;
   }
 }

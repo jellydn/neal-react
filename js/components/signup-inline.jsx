@@ -1,11 +1,12 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Section from "./section";
 import { Col } from "../helpers/bootstrap";
 
 export class SignupInline extends React.Component {
 
   static propTypes = {
-    onSubmit: React.PropTypes.func,
+    onSubmit: PropTypes.func,
   };
 
   state = { email: null, password: null };
@@ -26,12 +27,12 @@ export class SignupInline extends React.Component {
           <Col className="form-group" size={["xs-12", "lg-5"]}>
             <label className="sr-only" htmlFor="email">Email address</label>
             <input type="email" required className="form-control" name="email" placeholder="Email"
-              onChange={this.handleChange}/>
+              onChange={this.handleChange} />
           </Col>
           <Col className="form-group" size={["xs-12", "lg-5"]}>
             <label className="sr-only" htmlFor="password">Password</label>
             <input type="password" required className="form-control" name="password" placeholder="Password"
-              onChange={this.handleChange}/>
+              onChange={this.handleChange} />
           </Col>
           <Col className="form-group" size={["xs-12", "lg-2"]}>
             <button type="submit" className="btn btn-primary btn-ghost">Sign up</button>

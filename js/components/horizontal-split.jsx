@@ -1,5 +1,6 @@
 import { Row, Col, Container } from "../helpers/bootstrap";
 import React from "react";
+import PropTypes from "prop-types";
 
 export class HorizontalSplit extends React.Component {
 
@@ -13,7 +14,7 @@ export class HorizontalSplit extends React.Component {
   };
 
   static propTypes = {
-    padding: React.PropTypes.oneOf(["sm", "md", "lg"]),
+    padding: PropTypes.oneOf(["sm", "md", "lg"]),
   };
 
   static defaultProps = {
@@ -27,15 +28,15 @@ export class HorizontalSplit extends React.Component {
     }
 
     return (
-        <Row className={`neal-horizontal-split neal-horizontal-split-${this.props.padding}`}>
-          {this.props.children.map((child, idx) => {
-            return (
-              <Col size={HorizontalSplit.COLUMN_CLASSES[numSections]} className="neal-horizontal-split-col" key={idx}>
-                  {child}
-              </Col>
-            );
-          })}
-        </Row>
+      <Row className={`neal-horizontal-split neal-horizontal-split-${this.props.padding}`}>
+        {this.props.children.map((child, idx) => {
+          return (
+            <Col size={HorizontalSplit.COLUMN_CLASSES[numSections]} className="neal-horizontal-split-col" key={idx}>
+              {child}
+            </Col>
+          );
+        })}
+      </Row>
     );
   }
 }

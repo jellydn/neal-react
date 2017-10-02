@@ -1,14 +1,19 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 export class GoogleAnalytics extends React.Component {
-
   static propTypes = {
-    account: React.PropTypes.string.isRequired,
-    history: React.PropTypes.object,
+    account: PropTypes.string.isRequired,
+    history: PropTypes.object
   };
 
   componentDidMount() {
-    window.ga = window.ga || (() => { (ga.q = ga.q || []).push(arguments); }); ga.l = +new Date;
+    window.ga =
+      window.ga ||
+      (() => {
+        (ga.q = ga.q || []).push(arguments);
+      });
+    ga.l = +new Date();
     const account = this.props.account;
     // const scriptProtocol = ("https:" === document.location.protocol ? "https://ssl" : "http://www");
     const scriptSrc = `//google-analytics.com/analytics.js`;
@@ -16,7 +21,7 @@ export class GoogleAnalytics extends React.Component {
       // Track Route changes
       ga("create", account, "auto");
       if (this.props.history) {
-        this.props.history.listen((newLocation) => {
+        this.props.history.listen(newLocation => {
           ga("send", "pageview", newLocation.pathname);
         });
       }
@@ -24,6 +29,6 @@ export class GoogleAnalytics extends React.Component {
   }
 
   render() {
-    return <div key="google-analytics"/>;
+    return <div key="google-analytics" />;
   }
 }

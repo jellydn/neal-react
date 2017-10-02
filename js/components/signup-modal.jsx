@@ -1,10 +1,11 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Col } from "../helpers/bootstrap";
 
 class ModalHeader extends React.Component {
 
   static propTypes = {
-    title: React.PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
   };
 
   static defaultProps = {
@@ -27,7 +28,7 @@ class ModalHeader extends React.Component {
 class ModalFooter extends React.Component {
 
   static propTypes = {
-    buttonText: React.PropTypes.string.isRequired,
+    buttonText: PropTypes.string.isRequired,
   };
 
   static defaultProps = {
@@ -47,10 +48,10 @@ class ModalFooter extends React.Component {
 export class SignupModal extends React.Component {
 
   static propTypes = {
-    title: React.PropTypes.string.isRequired,
-    buttonText: React.PropTypes.string.isRequired,
-    modalId: React.PropTypes.string.isRequired,
-    onSubmit: React.PropTypes.func,
+    title: PropTypes.string.isRequired,
+    buttonText: PropTypes.string.isRequired,
+    modalId: PropTypes.string.isRequired,
+    onSubmit: PropTypes.func,
   };
 
   static defaultProps = {
@@ -59,7 +60,7 @@ export class SignupModal extends React.Component {
     modalId: "signup-modal",
   };
 
-  state = { };
+  state = {};
 
   handleChange = (e) => {
     this.setState({ [`${e.target.name}`]: e.target.value });
@@ -74,9 +75,9 @@ export class SignupModal extends React.Component {
     if (this.props.children) return this.props.children;
     return (
       <div>
-        <SignupModal.Input name="name" required label="Name" placeholder="Name"/>
-        <SignupModal.Input type="email" required name="email" label="Email" placeholder="Email"/>
-        <SignupModal.Input type="password" required name="password" label="Password" placeholder="Password"/>
+        <SignupModal.Input name="name" required label="Name" placeholder="Name" />
+        <SignupModal.Input type="email" required name="email" label="Email" placeholder="Email" />
+        <SignupModal.Input type="password" required name="password" label="Password" placeholder="Password" />
       </div>
     );
   };
@@ -86,15 +87,15 @@ export class SignupModal extends React.Component {
     return (
       <div>
         <div className="modal fade neal-signup-modal" key={modalId} id={modalId}
-        tabIndex="-1" role="dialog" aria-hidden="true">
+          tabIndex="-1" role="dialog" aria-hidden="true">
           <div className="modal-dialog" role="document">
             <div className="modal-content">
-              <ModalHeader title={this.props.title}/>
+              <ModalHeader title={this.props.title} />
               <form className="form-vertical" onSubmit={this.handleSubmit} onChange={this.handleChange}>
-              <div className="modal-body">
-                { this.renderBody() }
-              </div>
-              <ModalFooter buttonText={this.props.buttonText} />
+                <div className="modal-body">
+                  {this.renderBody()}
+                </div>
+                <ModalFooter buttonText={this.props.buttonText} />
               </form>
             </div>
           </div>
@@ -107,10 +108,10 @@ export class SignupModal extends React.Component {
 
 SignupModal.Input = class extends React.Component {
   static propTypes = {
-    type: React.PropTypes.string,
-    name: React.PropTypes.string.isRequired,
-    label: React.PropTypes.string.isRequired,
-    placeholder: React.PropTypes.string.isRequired,
+    type: PropTypes.string,
+    name: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    placeholder: PropTypes.string.isRequired,
   };
 
   static defaultProps = {
@@ -122,7 +123,7 @@ SignupModal.Input = class extends React.Component {
       <div className="form-group neal-signup-modal-input">
         <label className="sr-only" htmlFor={this.props.name}>{this.props.label}</label>
         <input type="text" className="form-control" name={this.props.name}
-          placeholder={this.props.placeholder} {... this.props}/>
+          placeholder={this.props.placeholder} {... this.props} />
       </div>
     );
   }
